@@ -14,28 +14,28 @@
 # An example set of tests is shown below. It is important to note that these tests are not "unit tests" in 
 # that they are not ran in isolation but in the order shown and the state of the device is not reset or 
 # altered in between executions (unless preconditions are used).
-tests = [ {'description': 'PINA: 0x00 => PINC: 0x40',
-    'steps': [ {'inputs': [('PINA',0x00)], 'iterations': 5 } ],
+tests = [ {'description': 'PINA: 0x70 => PINC: 0x40',
+    'steps': [ {'inputs': [('PINA',0x70)], 'iterations': 5 } ],
     'expected': [('PORTC',0x40)],
     },
 
-    {'description': 'PINA: 0x02 => PINC: 0x60',
-    'steps': [ {'inputs': [('PINA',0x02)], 'iterations': 5 } ],
+    {'description': 'PINA: 0x52 => PINC: 0x60',
+    'steps': [ {'inputs': [('PINA',0x52)], 'iterations': 5 } ],
     'expected': [('PORTC',0x60)],
     },
 
-    {'description': 'PINA: 0x03 => PINC: 0x70',
-    'steps': [ {'inputs': [('PINA',0x03)], 'iterations': 5 } ],
-    'expected': [('PORTC',0x70)],
+    {'description': 'PINA: 0x33 => PINC: 0xF0',
+    'steps': [ {'inputs': [('PINA',0x33)], 'iterations': 5 } ],
+    'expected': [('PORTC',0xF0)],
     },
 
-    {'description': 'PINA: 0x06 => PINC: 0x38',
-    'steps': [ {'inputs': [('PINA',0x06)], 'iterations': 5 } ],
-    'expected': [('PORTC',0x38)],
+    {'description': 'PINA: 0x36 => PINC: 0xB8',
+    'steps': [ {'inputs': [('PINA',0x36)], 'iterations': 5 } ],
+    'expected': [('PORTC',0xB8)],
     },
 
-    {'description': 'PINA: 0x09 => PINC: 0x3C',
-    'steps': [ {'inputs': [('PINA',0x09)], 'iterations': 5 } ],
+    {'description': 'PINA: 0x69 => PINC: 0x3C',
+    'steps': [ {'inputs': [('PINA',0x69)], 'iterations': 5 } ],
     'expected': [('PORTC',0x3C)],
     },
 
@@ -53,5 +53,5 @@ tests = [ {'description': 'PINA: 0x00 => PINC: 0x40',
 # Optionally you can add a set of "watch" variables these need to be global or static and may need
 # to be scoped at the function level (for static variables) if there are naming conflicts. The 
 # variables listed here will display everytime you hit (and stop at) a breakpoint
-#watch = []
+watch = ['ignition', 'driver', 'seatbelt']
 

@@ -16,11 +16,19 @@ int main(void) {
     DDRA = 0x00; PORTA = 0xFF;
     DDRC = 0xFF; PORTC = 0x00;
 
-    unsigned char tmpA, tmpC, mask;
+    unsigned char tmpA, ignition, driver, seatbelt, tmpC, mask;
     while (1) {
 	tmpC = 0x00;
     	tmpA = PINA & 0x0F;
 	mask = 0x01;
+
+	ignition = PINA & 0x10;
+	driver = PINA & 0x20;
+	seatbelt = PINA & 0x40;
+	
+	if (ignition && driver && !seatbelt) {
+	    tmpC = tmpC | 0x80;
+	}
 	
 	if (tmpA > 12) {
 	    tmpC = tmpC | mask;
